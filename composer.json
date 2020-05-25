@@ -1,0 +1,34 @@
+{
+    "description": "RT requester for php",
+    "require": {
+        "php": ">=5.6",
+        "psr/log": "^1.1",
+        "petrknap/php-singleton": "dev-master",
+        "curl/curl": "^2.3"
+    },
+    "WARNING": "This file is updated automatically. All keys will be overwritten, except of 'description', 'require' and 'conflict'.",
+    "name": "mikhailau/rt-requester",
+    "homepage": "https://github.com/mikhailau/rt_requester",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Mikhailau Mikalai",
+            "email": "mikhailau.n@gmail.com"
+        }
+    ],
+    "require-dev": {
+        "phpunit/phpunit": "^4.8"
+    },
+    "autoload": {
+        "psr-4": {
+            "Mikhailau\\RT\\Requester\\": "src"
+        },
+        "files": []
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Mikhailau\\RT\\Requester\\Test\\": "tests"
+        }
+    }
+}
+
