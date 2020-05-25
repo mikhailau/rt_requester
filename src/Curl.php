@@ -1,6 +1,6 @@
 <?php
 
-namespace RT;
+namespace Mikhailau\Rt\Requester;
 
 class Curl extends \Curl\Curl implements \PetrKnap\Php\Singleton\SingletonInterface
 {
