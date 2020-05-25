@@ -6,7 +6,6 @@
         "petrknap/php-singleton": "dev-master",
         "curl/curl": "^2.3"
     },
-    "WARNING": "This file is updated automatically. All keys will be overwritten, except of 'description', 'require' and 'conflict'.",
     "name": "mikhailau/rt-requester",
     "homepage": "https://github.com/mikhailau/rt_requester",
     "license": "MIT",
@@ -21,13 +20,13 @@
     },
     "autoload": {
         "psr-4": {
-            "Mikhailau\\RT\\Requester\\": "src"
+            "Mikhailau\\Rt\\Requester\\": "src"
         },
         "files": []
     },
     "autoload-dev": {
         "psr-4": {
-            "Mikhailau\\RT\\Requester\\Test\\": "tests"
+            "Mikhailau\\Rt\\Requester\\Test\\": "tests"
         }
     }
 }
