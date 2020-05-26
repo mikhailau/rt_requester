@@ -1,47 +1,54 @@
 <?php
 
 
-namespace RT;
+namespace Mikhailau\Rt\Requester;
 
 
-use RT\Interfaces\IOptionMaker;
-use RT\Interfaces\IQueryMaker;
+use Mikhailau\Rt\Requester\Interfaces\QueryTypeInterface;
 
-class QueryMaker implements IQueryMaker
+abstract class  QueryMaker extends AbstractQueryMaker
 {
-    private static  $instance;
-    private function __construct()
-    {
-    }
-    protected function __clone() { }
-    public function __wakeup()
-    {
-        throw new \Exception("Cannot unserialize singleton");
-    }
+    /**
+     * The Query to run against the FileSystem
+     * @var QueryTypeInterface;
+     */
+    protected $type;
+    protected $baseUrl = "https://rt.cert.by";
+    protected $data;
+    protected $url;
 
-    public static function getInstance()
+    public function execute()
     {
+        $curl=new Curl();
+        $curl->setOptions($this->options);
+        return $curl->{$this->type::TYPE}($this->url,$this->data);
 
-        if(empty($instance))
-        {
-            self::$instance=new static;
-        }
-        return self::$instance;
-    }
-    private function  createCurl(){
 
     }
 
-    public function getData(): string
+    protected function command(QueryTypeInterface $queryType, $baseUrl, $data)
     {
-        echo 123;
-        return "123";
-        // TODO: Implement getData() method.
-    }
-    public function setOptions(IOptionMaker $optionMaker)
-    {
+        $this->setDefaultOptions(false);
+        $this->setQueryType($queryType);
+        $this->setData($data);
+        $this->setUrl($baseUrl);
 
-        // TODO: Implement setOptions() method.
     }
+
+    protected function setQueryType(QueryTypeInterface $queryType)
+    {
+        $this->type = $queryType;
+    }
+
+    protected function setUrl(string $baseUrl)
+    {
+        $this->url= $this->baseUrl . "/" . $baseUrl;
+    }
+
+    protected function setData(array $data)
+    {
+        $this->data = $data;
+    }
+
 
 }
