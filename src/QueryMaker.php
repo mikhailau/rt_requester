@@ -13,9 +13,9 @@ abstract class  QueryMaker extends AbstractQueryMaker
      * @var QueryTypeInterface;
      */
     protected $type;
-    protected $baseUrl = "https://rt.cert.by";
     protected $data;
     protected $url;
+    protected $baseUrl = "";
 
     public function execute()
     {
@@ -24,6 +24,10 @@ abstract class  QueryMaker extends AbstractQueryMaker
         return $curl->{$this->type::TYPE}($this->url,$this->data);
 
 
+    }
+    public function setBaseUrl($url)
+    {
+        $this->baseUrl=$url;
     }
 
     protected function command(QueryTypeInterface $queryType, $baseUrl, $data)
@@ -49,6 +53,10 @@ abstract class  QueryMaker extends AbstractQueryMaker
     {
         $this->data = $data;
     }
+
+
+
+
 
 
 }

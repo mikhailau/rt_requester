@@ -19,6 +19,7 @@ abstract class AbstractQueryMaker implements QueryMakerInterface
      */
     protected $options=array();
 
+
     /**
      *
      * @return mixed
@@ -30,6 +31,7 @@ abstract class AbstractQueryMaker implements QueryMakerInterface
     abstract protected function setUrl(String $baseUrl);
 
     abstract protected function command(QueryTypeInterface $queryType,$baseUrl,$data);
+
 
 
     /**
