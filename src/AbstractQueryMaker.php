@@ -39,11 +39,11 @@ abstract class AbstractQueryMaker implements QueryMakerInterface
      */
     protected function setDefaultOptions(Bool $sslVerify=true)
     {
-        $this->options[CURLOPT_RETURNTRANSFER]=true;
-        $this->options[CURLOPT_MAXREDIRS]=10;
-        $this->options[CURLOPT_TIMEOUT]=30;
-        $this->options[CURLOPT_HTTP_VERSION]="CURL_HTTP_VERSION_1_1";
-        $this->options[CURLOPT_HTTPHEADER]=array("content-type: application/x-www-form-urlencoded");
+        $this->options[CURLOPT_RETURNTRANSFER] = true;
+        $this->options[CURLOPT_MAXREDIRS] = 10;
+        $this->options[CURLOPT_TIMEOUT] = 30;
+        $this->options[CURLOPT_HTTP_VERSION] = "CURL_HTTP_VERSION_1_1";
+        $this->options[CURLOPT_HTTPHEADER] = array("content-type: application/x-www-form-urlencoded");
         if(!$sslVerify) {
             $this->options[CURLOPT_SSL_VERIFYPEER] = false;
             $this->options[CURLOPT_SSL_VERIFYHOST] = false;

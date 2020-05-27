@@ -21,17 +21,19 @@ abstract class  QueryMaker extends AbstractQueryMaker
     {
 
 
-
     }
-    public function getData():array
+
+    public function getData(): array
     {
         return $this->data;
     }
-    public function getUrl():string
+
+    public function getUrl(): string
     {
         return $this->url;
     }
-    public function getOptions():array
+
+    public function getOptions(): array
     {
         return $this->options;
     }
@@ -53,17 +55,13 @@ abstract class  QueryMaker extends AbstractQueryMaker
 
     protected function setUrl(string $baseUrl)
     {
-        $this->url=  $baseUrl;
+        $this->url = $baseUrl;
     }
 
     protected function setData(array $data)
     {
         $this->data = $data;
     }
-
-
-
-
 
 
 }

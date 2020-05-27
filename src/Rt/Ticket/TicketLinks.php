@@ -18,7 +18,7 @@ class TicketLinks extends QueryMaker
 
     protected function createBaseUrl($ticketId)
     {
-        return self::URL.$ticketId."/".self::URL_SECOND_PART;
+        return self::URL . $ticketId . "/" . self::URL_SECOND_PART;
     }
 
 }

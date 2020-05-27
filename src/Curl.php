@@ -7,7 +7,7 @@ use Mikhailau\Rt\Requester\Interfaces\CurlInterface;
 use \PetrKnap\Php\Singleton\SingletonTrait;
 use \PetrKnap\Php\Singleton\SingletonInterface;
 
-class Curl extends \Curl\Curl implements SingletonInterface,CurlInterface
+class Curl extends \Curl\Curl implements SingletonInterface, CurlInterface
 {
 
     use SingletonTrait;
@@ -17,14 +17,12 @@ class Curl extends \Curl\Curl implements SingletonInterface,CurlInterface
         parent::__construct();
     }
 
-    public function setOptions(Array $options)
+    public function setOptions(array $options)
     {
-        foreach($options as $key => $value)
-        {
-            $this->setOpt($key,$value);
+        foreach ($options as $key => $value) {
+            $this->setOpt($key, $value);
         }
     }
-
 
 
 }
