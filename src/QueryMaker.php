@@ -12,23 +12,30 @@ abstract class  QueryMaker extends AbstractQueryMaker
      * The Query to run against the FileSystem
      * @var QueryTypeInterface;
      */
-    protected $type;
+    public $type;
     protected $data;
     protected $url;
     protected $baseUrl = "";
 
     public function execute()
     {
-        $curl=new Curl();
-        $curl->setOptions($this->options);
-        return $curl->{$this->type::TYPE}($this->url,$this->data);
+
 
 
     }
-    public function setBaseUrl($url)
+    public function getData():array
     {
-        $this->baseUrl=$url;
+        return $this->data;
     }
+    public function getUrl():string
+    {
+        return $this->url;
+    }
+    public function getOptions():array
+    {
+        return $this->options;
+    }
+
 
     protected function command(QueryTypeInterface $queryType, $baseUrl, $data)
     {
@@ -46,7 +53,7 @@ abstract class  QueryMaker extends AbstractQueryMaker
 
     protected function setUrl(string $baseUrl)
     {
-        $this->url= $this->baseUrl . "/" . $baseUrl;
+        $this->url=  $baseUrl;
     }
 
     protected function setData(array $data)
