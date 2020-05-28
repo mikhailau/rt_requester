@@ -1,47 +1,107 @@
 <?php
 
 
-namespace RT;
+namespace Mikhailau\Rt\Requester;
 
 
-use RT\Interfaces\IOptionMaker;
-use RT\Interfaces\IQueryMaker;
+use Mikhailau\Rt\Requester\Interfaces\QueryTypeInterface;
 
-class QueryMaker implements IQueryMaker
+/**
+ * Class QueryMaker
+ * @package Mikhailau\Rt\Requester
+ */
+abstract class  QueryMaker extends AbstractQueryMaker
 {
-    private static  $instance;
-    private function __construct()
-    {
-    }
-    protected function __clone() { }
-    public function __wakeup()
-    {
-        throw new \Exception("Cannot unserialize singleton");
-    }
+    /**
+     * The Query to run against the FileSystem
+     * @var QueryTypeInterface;
+     */
+    public $type;
+    /**
+     * @var
+     */
+    protected $data;
+    /**
+     * @var
+     */
+    protected $url;
+    /**
+     * @var string
+     */
+    protected $baseUrl = "";
 
-    public static function getInstance()
-    {
-
-        if(empty($instance))
-        {
-            self::$instance=new static;
-        }
-        return self::$instance;
-    }
-    private function  createCurl(){
-
-    }
-
-    public function getData(): string
-    {
-        echo 123;
-        return "123";
-        // TODO: Implement getData() method.
-    }
-    public function setOptions(IOptionMaker $optionMaker)
+    /**
+     *
+     */
+    public function execute()
     {
 
-        // TODO: Implement setOptions() method.
+
     }
+
+    /**
+     * @return array
+     */
+    public function getData(): array
+    {
+        return $this->data;
+    }
+
+    /**
+     * @return string
+     */
+    public function getUrl(): string
+    {
+        return $this->url;
+    }
+
+    /**
+     * @return array
+     */
+    public function getOptions(): array
+    {
+        return $this->options;
+    }
+
+
+    /**
+     * @param QueryTypeInterface $queryType
+     * @param $baseUrl
+     * @param $data
+     */
+    protected function command(QueryTypeInterface $queryType, $baseUrl, $data)
+    {
+        $this->setDefaultOptions(false);
+        $this->setQueryType($queryType);
+        $this->setData($data);
+        $this->setUrl($baseUrl);
+
+    }
+
+    /**
+     * @param QueryTypeInterface $queryType
+     * @return mixed|void
+     */
+    protected function setQueryType(QueryTypeInterface $queryType)
+    {
+        $this->type = $queryType;
+    }
+
+    /**
+     * @param string $baseUrl
+     */
+    protected function setUrl(string $baseUrl)
+    {
+        $this->url = $baseUrl;
+    }
+
+    /**
+     * @param array $data
+     */
+    protected function setData(array $data)
+    {
+        $this->data = $data;
+    }
+
 
 }
