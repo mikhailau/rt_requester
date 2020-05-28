@@ -10,7 +10,7 @@ class TicketHistory extends QueryMaker
     const URL = "/REST/1.0/ticket/";
     const URL_SECOND_PART = "history/";
 
-    public function __construct(string $ticketId, array $data)
+    public function __construct(string $ticketId, array $data,bool $longFormat = false)
     {
         $url = $this->createBaseUrl($ticketId);
         $this->command(new Get(), $url, $data);
