@@ -4,7 +4,8 @@
         "php": ">=5.6",
         "psr/log": "^1.1",
         "petrknap/php-singleton": "dev-master",
-        "curl/curl": "^2.3"
+        "curl/curl": "^2.3",
+        "nilportugues/sql-query-builder": "^1.8"
     },
     "name": "mikhailau/rt-requester",
     "homepage": "https://github.com/mikhailau/rt_requester",
@@ -30,4 +31,3 @@
         }
     }
 }
-
