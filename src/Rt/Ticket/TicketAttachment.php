@@ -18,7 +18,7 @@ class TicketAttachment extends QueryMaker
 
     protected function createBaseUrl($ticketId, $attachmentId)
     {
-        return self::URL . $ticketId . "/" . self::URL_SECOND_PART . "/" . $attachmentId;
+        return self::URL . $ticketId . "/" . self::URL_SECOND_PART  . $attachmentId;
     }
 
 }

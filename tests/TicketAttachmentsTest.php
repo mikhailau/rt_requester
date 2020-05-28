@@ -2,22 +2,22 @@
 
 namespace Mikhailau\Rt\Requester\Test;
 
-use Mikhailau\Rt\Requester\Rt\Ticket\TicketLinks;
+use Mikhailau\Rt\Requester\Rt\Ticket\TicketAttachments;
 use PHPUnit\Framework\TestCase;
 
-class TicketLinksTest extends TestCase
+class TicketAttachmentsTest extends TestCase
 {
     use TestsTrait;
 
-    const TICKET_URL = TicketLinks::URL;
-    const TICKET_URL_SECOND = TicketLinks::URL_SECOND_PART;
+    const TICKET_URL = TicketAttachments::URL;
+    const TICKET_URL_SECOND = TicketAttachments::URL_SECOND_PART;
 
     /**
      * @dataProvider providerGetUrl
      */
     public function testGetUrl($ticketId, $data, $result)
     {
-        $ticket = $this->getData(new TicketLinks($ticketId, $data));
+        $ticket = $this->getData(new TicketAttachments($ticketId, $data));
         $this->assertEquals($result, $ticket["URL"]);
 
     }
