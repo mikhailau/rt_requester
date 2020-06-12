@@ -58,6 +58,12 @@ class RequestTracker implements Requester\Interfaces\RequestTrackerInterface
         return $this->parseData($result);
     }
 
+    public function findTickets(array $data = [])
+    {
+        $result = $this->doQuery(new Requester\Rt\Ticket\TicketSearch($data));
+        return $this->parseData($result);
+
+    }
     protected function parseData(Curl $result): array
     {
         var_dump($result);
