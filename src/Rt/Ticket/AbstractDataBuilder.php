@@ -1,15 +1,13 @@
 <?php
 
-
 namespace Mikhailau\Rt\Requester\Rt\Ticket;
 
-
-use Mikhailau\Rt\Requester\Ticket\Interfaces\DataBuilderInterface;
-use Mikhailau\Rt\Requester\Ticket\Interfaces\TicketConstantsInterface;
+use \Mikhailau\Rt\Requester\Rt\Ticket\Interfaces\DataBuilderInterface;
+use Mikhailau\Rt\Requester\Rt\Ticket\Interfaces\TicketConstantsInterface;
 
 abstract class AbstractDataBuilder implements DataBuilderInterface, TicketConstantsInterface
 {
-    protected $result=array();
+    protected $result = array();
 
     /**
      * @return array
@@ -19,9 +17,10 @@ abstract class AbstractDataBuilder implements DataBuilderInterface, TicketConsta
         return $this->result;
     }
 
-    protected function addFieldToResult($key,$data)
+    protected function addFieldToResult($key, $data)
     {
-        $result[$key]=$data;
+
+        $this->result[$key] = $data;
         return $this;
     }
 }

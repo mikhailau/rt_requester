@@ -1,10 +1,10 @@
 <?php
 
 
-namespace Mikhailau\Rt\Requester\Ticket\Interfaces;
+namespace Mikhailau\Rt\Requester\Rt\Ticket\Interfaces;
 
 
 interface DataBuilderInterface
 {
-    public function getResult(): array;
+    public function getResultAsArray(): array;
 }

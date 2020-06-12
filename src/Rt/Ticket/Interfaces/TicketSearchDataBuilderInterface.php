@@ -1,6 +1,6 @@
 <?php
 
-namespace Mikhailau\Rt\Requester\Ticket\Interfaces;
+namespace Mikhailau\Rt\Requester\Rt\Ticket\Interfaces;
 
 /**
  * Interface TicketSearchDataBuilderInterface
@@ -8,8 +8,6 @@ namespace Mikhailau\Rt\Requester\Ticket\Interfaces;
  */
 interface TicketSearchDataBuilderInterface
 {
-
-
 
 
     /**
@@ -37,5 +35,11 @@ interface TicketSearchDataBuilderInterface
      * @return TicketSearchDataBuilderInterface
      */
     public function addQuery(string $query): TicketSearchDataBuilderInterface;
+
+    /**
+     * @param array $fields
+     * @return TicketSearchDataBuilderInterface
+     */
+    public function addFields(array $fields): TicketSearchDataBuilderInterface;
 
 }
